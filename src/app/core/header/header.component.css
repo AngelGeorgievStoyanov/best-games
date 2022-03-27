@@ -1,0 +1,29 @@
+div#nav {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ 
+}
+
+ul#nav-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+    padding-right: 10px;
+    
+   
+   
+}
+#logo{
+    list-style-type: none;
+}
+
+ul#nav-ul>li{
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    list-style-type: none;
+}
+
