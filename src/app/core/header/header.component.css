@@ -1,9 +1,12 @@
-div#nav {
+nav#nav {
  display: flex;
  flex-direction: row;
- justify-content: space-between;
+ justify-content: space-between; 
+ background-color: black;
+ color: white;
  
 }
+
 
 ul#nav-ul {
     display: flex;
@@ -15,11 +18,11 @@ ul#nav-ul {
    
    
 }
-#logo{
+#logo {
     list-style-type: none;
 }
 
-ul#nav-ul>li{
+ul#nav-ul > li  {
     margin-right: 10px;
     margin-left: 10px;
     padding-right: 10px;
@@ -27,3 +30,12 @@ ul#nav-ul>li{
     list-style-type: none;
 }
 
+#logo>a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-ul>li>a{
+    color: white;
+    text-decoration: none;
+}

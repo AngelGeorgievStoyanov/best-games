@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
-import { ImagesService } from './images.service';
+import { AppRoutingModule } from './app-routing.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import { ImagesService } from './images.service';
   ],
   imports: [
     BrowserModule,
-    CoreModule 
+    CoreModule,
+    AppRoutingModule,
+    UserModule
   ],
-  providers: [ImagesService],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
