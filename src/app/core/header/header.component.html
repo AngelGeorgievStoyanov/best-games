@@ -2,12 +2,13 @@
     <nav id="nav" class="nav">
         <ul class="nav-logo">
             <li id="logo">
-                <a routerLink="/home" >LOGO</a>
+                <a routerLink="/home">LOGO</a>
             </li>
+
         </ul>
-        <ul id="nav-ul" class="nav-ul">
+        <ul *ngIf="!isLogged" id="nav-ul" class="nav-ul">
             <li>
-                <a routerLink="/home" >Home</a>
+                <a routerLink="/home">Home</a>
             </li>
             <li>
                 <a routerLink="/login">Login</a>
@@ -15,9 +16,15 @@
             <li>
                 <a routerLink="/register">Register</a>
             </li>
-            <li>
-                <a>Logout</a>
-            </li>
         </ul>
+        <ul *ngIf="isLogged" id="nav-ul" class="nav-ul">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li routerLink="/users/me">{{username}}'s profile</li>
+            <li (click)="logout()">Logout</li>
+
+        </ul>
+
     </nav>
 </header>

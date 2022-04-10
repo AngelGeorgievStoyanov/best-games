@@ -1,1 +1,10 @@
-<p>login works!</p>
+<div id="login-form" class="login-form">
+    <form #form="ngForm" id="form" method="post" (ngSubmit)="login(form)">
+        <input #emailInput="ngModel" ngModel type="email" name="email" placeholder="Email" class="login-input" required
+            email />
+        <input #passwordInput="ngModel" ngModel type="password" name="password" placeholder="Password"
+            class="login-input" required />
+        <button class="btnSubmit login-input">Sign Up</button>
+        <small> <a class="login-input" routerLink="/register">Don't Have An Account? Sign up!</a></small>
+    </form>
+</div>
