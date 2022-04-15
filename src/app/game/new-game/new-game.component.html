@@ -1,0 +1,12 @@
+<section id="add-game">
+    <form #form="ngForm" class="add-game" (ngSubmit)="addGame(form)">
+        <h2>Add new game</h2>
+        <label for="name">Name of the game</label>
+        <input type="text" name="name" ngModel>
+        <label for="description">Description</label>
+        <textarea name="description" id="" cols="40" rows="7" ngModel></textarea>
+        <label for="imageUrl">imageUrl</label>
+        <input type="text" name="imageUrl" ngModel >
+        <button>ADD</button>
+    </form>
+</section>

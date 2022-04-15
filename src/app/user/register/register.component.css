@@ -7,7 +7,7 @@
     border-radius: 5px;
     padding: 10px;
     width: 30%;
-    height: 300px;
+    height: 500px;
     
     justify-content: space-around;
 }
@@ -16,13 +16,15 @@
     margin: 8px;
     padding: 5px;
     border-radius: 5px;
-    width: 44%;
+    width: 65%;
 }
 
 #register-form{
     display: flex;
     flex-direction: column;
+   justify-content: space-around;
     align-items: center;
+  height: 500px;
 }
 
 .btnSubmit{

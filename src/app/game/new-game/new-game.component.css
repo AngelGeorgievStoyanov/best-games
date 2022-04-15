@@ -1,0 +1,18 @@
+#add-game {
+    display: flex;
+  flex-direction: column;
+    margin: 150px auto;
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 10px;
+    width: 35%;
+    height: 300px;
+    align-items: center;
+}
+
+.add-game{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

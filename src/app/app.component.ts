@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserService } from './user/user.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,4 +8,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'best-games';
+
+
+  get isAuthenticating(): boolean {
+    return this.userService.user === undefined;
+  }
+  constructor(
+    private userService: UserService
+  ) {
+    this.userService.getProfileInfo().subscribe({
+      error: () => {
+        this.userService.user = null;
+      }
+    })
+  }
+
+
 }
+
+
+
+

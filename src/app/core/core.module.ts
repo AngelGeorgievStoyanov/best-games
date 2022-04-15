@@ -4,8 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
-import { LocalStorage } from './guards/injection-tokens';
-import{AuthActivate} from './guards/auh.activate'
+import { LocalStorage } from './injection-tokens';
+import { AuthActivate } from './guards/auh.activate'
 
 
 

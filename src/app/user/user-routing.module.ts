@@ -12,7 +12,7 @@ const routes: Routes = [
     canActivate :[AuthActivate],
     data:{
       authenticationRequired:false,
-      authenticationFailureRedirectUrl: '/',
+      authenticationFailureRedirectUrl: '/home',
     }
 
 },
@@ -22,7 +22,7 @@ const routes: Routes = [
     canActivate: [AuthActivate],
     data: {
       authenticationRequired: false,
-      authenticationFailureRedirectUrl: '/',
+      authenticationFailureRedirectUrl: '/home',
     }
 }
 ];

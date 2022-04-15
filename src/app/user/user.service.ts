@@ -18,25 +18,26 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   register(data: { username: string; email: string; tel: string; password: string }) {
-    return this.http.post<IUser>(`${apiURL}/register`, data, { withCredentials: true }).pipe(
+    return this.http.post<IUser>(`${apiURL}/users/register`, data, {withCredentials: false }).pipe(
       tap((user) => this.user = user)
     );
   }
 
   login(data: { email: string; password: string }) {
-    return this.http.post<IUser>(`${apiURL}/login`, data, { withCredentials: true }).pipe(
+    
+    return this.http.post<IUser>(`${apiURL}/users/login`, data, { withCredentials: false }).pipe(
       tap((user) => this.user = user)
     );
   }
 
   getProfileInfo() {
-    return this.http.get<IUser>(`${apiURL}/me`, { withCredentials: true }).pipe(
+    return this.http.get<IUser>(`${apiURL}/users/me`, { withCredentials: false }).pipe(
       tap((user) => this.user = user)
     )
   }
 
   logout() {
-    return this.http.post<IUser>(`${apiURL}/logout`, {}, { withCredentials: true }).pipe(
+    return this.http.post<IUser>(`${apiURL}/users/logout`, {}, { withCredentials: false }).pipe(
       tap(() => this.user = null)
     );
   }

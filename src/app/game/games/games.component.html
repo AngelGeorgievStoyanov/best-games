@@ -1,0 +1,14 @@
+<main id="main">
+    <section *ngFor="let game of arr">
+        <li class="game-card">
+            <h2>{{game.name}}</h2>
+            <p>{{game.description}}</p>
+            <p>
+                <img class="game-card-image" src={{game.imageUrl}} alt="">
+            </p>
+            <p>
+                <button class="button-details" [routerLink]="['/jsonstore/games', game._id]">Details</button>
+            </p>
+        </li>
+    </section>
+</main>

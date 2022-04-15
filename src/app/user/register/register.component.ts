@@ -1,7 +1,8 @@
-import { Component, OnDestroy} from '@angular/core';
-import { FormGroup,FormBuilder} from '@angular/forms';
+import { Component, OnDestroy } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { emailValidator, sameValueAsFactory } from 'src/app/shared/validators';
 import { UserService } from '../user.service';
 
 @Component({
@@ -17,16 +18,18 @@ export class RegisterComponent implements OnDestroy {
   form: FormGroup;
 
   constructor(
-    
+
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router
   ) {
     this.form = this.fb.group({
-      username: [''],
-      email: [''],
-      password: [''],
-      confirmpass: ['']
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, emailValidator]],
+      password: ['', [Validators.required]],
+      confirmpass: ['', [Validators.required, sameValueAsFactory(
+        () => this.form?.get('password'), this.killSubscription
+      )]]
     });
   }
 
@@ -35,7 +38,7 @@ export class RegisterComponent implements OnDestroy {
     console.log(this.form)
     this.userService.register(this.form.value).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         console.error(err);
