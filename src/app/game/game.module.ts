@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NewGameComponent } from './new-game/new-game.component';
 import { GamesComponent } from './games/games.component';
 import { GameRoutingModule } from './game-routing.module';
-import { GameComponent } from './game/game.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { GameDetailsComponent } from './game-details/game-details.component';
+import { GameEditComponent } from './game-edit/game-edit.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     NewGameComponent,
     GamesComponent,
-    GameComponent
+    GameEditComponent,
+    GameDetailsComponent
   ],
   imports: [
     CommonModule,

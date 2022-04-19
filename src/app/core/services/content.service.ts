@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {environment} from '../environments/environment';
-import { IGame } from './shared/interfaces';
+import { Observable } from 'rxjs';
+import {environment} from '../../../environments/environment';
+import { IGame } from '../../shared/interfaces';
 
 
 const API_URL = environment.apiURL;
@@ -19,7 +20,9 @@ export class ContentService {
     return this.http.get<IGame[]>(`${API_URL}/jsonstore/games`,{withCredentials:false})
   }
 
-
+  getGameById(id:string){
+    return this.http.get<IGame>(`${API_URL}/jsonstore/games/${id}`)
+  }
 
 
 }

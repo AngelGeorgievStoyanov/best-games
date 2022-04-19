@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContentService } from 'src/app/content.service';
+import { ContentService } from 'src/app/core/services/content.service';
 import { IGame } from 'src/app/shared/interfaces';
 
 @Component({
@@ -30,15 +30,3 @@ export class GamesComponent {
   }
 
 }
-
-//// Import toArray function
-//import { toArray } from 'rxjs/operators';
-//
-//// Generic function to consume API
-//searchObjects(term: string): Observable<theObject[]> {
-//  requestUrl = this.url + term;
-//  return this.http.get<theObject[]>(requestUrl, httpOptions).pipe(
-//      // convert object to array
-//      toArray<theObject>()
-//  );
-//}

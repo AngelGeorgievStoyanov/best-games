@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
 import { GameModule } from './game/game.module';
-import { ContentService } from './content.service';
+import { ContentService } from './core/services/content.service';
+
 
 @NgModule({
   declarations: [

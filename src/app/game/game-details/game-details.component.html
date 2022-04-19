@@ -1,0 +1,18 @@
+<h2>details</h2>
+
+
+<section >
+    <li class="game-card">
+        <h2>{{game?.name}}</h2>
+        <p>{{game?.description}}</p>
+        <p>
+            <img class="game-card-image" src={{game?.imageUrl}} alt="">
+        </p>
+        <p>
+            <button class="button-like">Like</button>
+        </p>
+        <p>
+            <button class="button-edit" [routerLink]="['/edit', idGame]">Edit</button>
+        </p>
+    </li>
+</section>
