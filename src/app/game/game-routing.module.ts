@@ -8,7 +8,7 @@ import { NewGameComponent } from './new-game/new-game.component';
 
 const routes: Routes = [
   {
-    path: 'games',
+    path: '',
     pathMatch: 'full',
     component: GamesComponent
 
@@ -27,10 +27,18 @@ const routes: Routes = [
     component: GameEditComponent
   },
   {
-    path: ':gameId',
+    path: 'details/:gameId',
+    pathMatch: "full",
     component: GameDetailsComponent,
+
   },
- 
+  {
+    path: 'edit/:gameId',
+    pathMatch: "full",
+    component: GameEditComponent
+  }
+
+
 ]
 
 @NgModule({
