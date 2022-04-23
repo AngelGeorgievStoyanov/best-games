@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from 'src/app/core/services/content.service';
 import { IGame } from 'src/app/shared/interfaces/game';
 
@@ -8,12 +9,14 @@ import { IGame } from 'src/app/shared/interfaces/game';
   templateUrl: './game-edit.component.html',
   styleUrls: ['./game-edit.component.css']
 })
-export class GameEditComponent{
+export class GameEditComponent {
 
   game: IGame | undefined;
   idGame: any;
+  oneGame: any;
+
   constructor(private contentService: ContentService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute, private router: Router,) {
     this.fetchGame();
 
   }
@@ -21,17 +24,29 @@ export class GameEditComponent{
   fetchGame(): void {
     this.game = undefined;
     const id = this.activatedRoute.snapshot.params.gameId;
-    this.idGame=id;
-    console.log(this.idGame,'---...... idGame')
+    this.idGame = id;
+    console.log(this.idGame, '---...... idGame')
     console.log(id, '---------------id')
     this.contentService.getGameById(id).subscribe((data) => {
-      this.game = data
-      console.log(data)
+      this.game = (data)
+      this.oneGame = Object.values(this.game)
+      console.log('------', this.game)
 
     })
   }
 
 
- 
+  editGame(idGame: any, form: NgForm): void {
+  
+    console.log(form.value)
+    this.contentService.editGameById(idGame, form.value).subscribe({
+      next: () => {
+        this.router.navigate(['/games'])
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
 
 }

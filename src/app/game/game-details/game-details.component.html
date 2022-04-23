@@ -1,5 +1,3 @@
-<h2>details</h2>
-
 
 <section >
     <li class="game-card">
@@ -13,6 +11,9 @@
         </p>
         <p>
             <button class="button-edit" [routerLink]="['/games/edit', idGame]">Edit</button>
+        </p>
+        <p>
+            <button class="button-edit" (click)="delGame(idGame)">Delete</button>
         </p>
     </li>
 </section>
