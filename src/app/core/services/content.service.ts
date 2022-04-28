@@ -9,10 +9,17 @@ const API_URL = environment.apiURL;
 
 @Injectable()
 export class ContentService {
+  game: IGame | null | undefined;
 
   constructor(private http: HttpClient) { }
 
-  createGame(data: any) {
+  createGame(data: {
+    name: string,
+    description: string,
+    imageUrl: string,
+    _ownerId: string,
+    likes: string[]
+  }) {
     return this.http.post<IGame>(`${API_URL}/jsonstore/games`, data, { withCredentials: false })
   }
 
@@ -24,14 +31,26 @@ export class ContentService {
     return this.http.get<IGame>(`${API_URL}/jsonstore/games/${id}`)
   }
 
-  editGameById(id: string, data:any) {
-    let idIgame = id
-    data._id=id
+  editGameById(id: string, ownerId: string, likeees: string[], data: any) {
+
+    data._id = id
+    data._ownerId = ownerId;
+    console.log(likeees,'---likeeees--')
+    console.log(data.likes,'---likeeeesOwd--')
+    data.likes=likeees
+    console.log(data.likes,'---likeeeesNEW--')
+    
     console.log(data, '-----dataaa')
     return this.http.put<IGame>(`${API_URL}/jsonstore/games/${id}`, data, { withCredentials: false })
   }
 
-  delGameById(id:string){
+  delGameById(id: string) {
     return this.http.delete<IGame>(`${API_URL}/jsonstore/games/${id}`)
+  }
+
+
+  likeGameById(data: any, id: string,) {
+  
+    return this.http.put<IGame>(`${API_URL}/jsonstore/games/${id}`, data, { withCredentials: false })
   }
 }

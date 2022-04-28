@@ -1,7 +1,7 @@
 
-<p>{{oneGame[0]}}</p>
+
 <section id="add-game">
-    <form #form="ngForm" class="add-game" (ngSubmit)="editGame( idGame, form)">
+    <form #form="ngForm" class="add-game" (ngSubmit)="editGame( idGame,ownerId ,form)">
         <h2>Edit game</h2>
         <label for="name">Name of the game</label>
         <input type="text" [(ngModel)]="oneGame[0]" name="name" ngModel>

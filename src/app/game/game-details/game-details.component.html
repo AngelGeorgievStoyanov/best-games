@@ -1,18 +1,20 @@
-
-<section >
+<section>
     <li class="game-card">
         <h2>{{game?.name}}</h2>
         <p>{{game?.description}}</p>
         <p>
             <img class="game-card-image" src={{game?.imageUrl}} alt="">
         </p>
-        <p>
-            <button class="button-like">Like</button>
+        <p *ngIf="userId!=ownerId">
         </p>
-        <p>
+        <button class="button-like" (click)="likeGame(game,userId)">Like</button>
+        <p>Likes:
+            <span>{{game?.likes?.length}}</span>
+        </p>
+        <p *ngIf="userId&&(userId==ownerId)">
             <button class="button-edit" [routerLink]="['/games/edit', idGame]">Edit</button>
         </p>
-        <p>
+        <p *ngIf="userId&&(userId==ownerId)">
             <button class="button-edit" (click)="delGame(idGame)">Delete</button>
         </p>
     </li>

@@ -18,6 +18,7 @@ export class HeaderComponent {
   get username(): string {
     return this.userService.user?.username || '';
   }
+ 
   constructor(
     private userService: UserService,
     private router: Router
