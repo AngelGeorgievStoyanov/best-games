@@ -6,13 +6,15 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserService } from '../core/services/user.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

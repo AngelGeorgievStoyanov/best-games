@@ -35,11 +35,8 @@ export class ContentService {
 
     data._id = id
     data._ownerId = ownerId;
-    console.log(likeees,'---likeeees--')
-    console.log(data.likes,'---likeeeesOwd--')
-    data.likes=likeees
-    console.log(data.likes,'---likeeeesNEW--')
-    
+    data.likes = likeees;
+
     console.log(data, '-----dataaa')
     return this.http.put<IGame>(`${API_URL}/jsonstore/games/${id}`, data, { withCredentials: false })
   }
@@ -50,7 +47,15 @@ export class ContentService {
 
 
   likeGameById(data: any, id: string,) {
-  
+
     return this.http.put<IGame>(`${API_URL}/jsonstore/games/${id}`, data, { withCredentials: false })
+  }
+
+
+  getMyPosts(ownerId: string) {
+    let query = encodeURIComponent(`_ownerId="${ownerId}"`);
+
+    return this.http.get<IGame[]>(`${API_URL}/jsonstore/games?where=${query}`, { withCredentials: false });
+
   }
 }

@@ -31,9 +31,6 @@ export class GameEditComponent {
     this.game = undefined;
     const id = this.activatedRoute.snapshot.params.gameId;
     this.idGame = id;
-
-    console.log(this.idGame, '---...... idGame')
-    console.log(id, '---------------id')
     this.contentService.getGameById(id).subscribe((data) => {
       this.game = (data)
       this.oneGame = Object.values(this.game)
@@ -44,9 +41,7 @@ export class GameEditComponent {
 
 
   editGame(idGame: any, ownerId: any, form: NgForm): void {
-    console.log(this.likess,'-----likeees')
-    console.log(form.value)
-    this.contentService.editGameById(idGame, ownerId,this.likess, form.value).subscribe({
+    this.contentService.editGameById(idGame, ownerId, this.likess, form.value).subscribe({
       next: () => {
         this.router.navigate(['/games'])
       },

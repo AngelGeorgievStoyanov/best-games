@@ -9,10 +9,8 @@ import { UserModule } from './user/user.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-
 import { GameModule } from './game/game.module';
 import { ContentService } from './core/services/content.service';
-
 
 @NgModule({
   declarations: [

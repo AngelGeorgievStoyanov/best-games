@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameEditComponent } from './game-edit/game-edit.component';
+import { MyGamesComponent } from './my-games/my-games.component';
 
 
 
@@ -15,7 +16,8 @@ import { GameEditComponent } from './game-edit/game-edit.component';
     NewGameComponent,
     GamesComponent,
     GameEditComponent,
-    GameDetailsComponent
+    GameDetailsComponent,
+    MyGamesComponent
   ],
   imports: [
     CommonModule,

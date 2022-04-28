@@ -42,12 +42,11 @@ export class NewGameComponent {
     if (this.form.invalid) { return }
     console.log(this.form.value)
     this.contentService.createGame(this.form.value).subscribe({
-      next: (game) => {
-        console.log(game)
+      next: () => {
         this.router.navigate(['/games'])
       },
       error: (err) => {
-        console.log(err)
+        console.log(err);
       }
     })
   }

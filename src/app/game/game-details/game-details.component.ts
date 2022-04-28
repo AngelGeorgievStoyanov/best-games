@@ -19,13 +19,19 @@ export class GameDetailsComponent {
   game: IGame | undefined;
   idGame: any;
   likes: any;
+  
 
+get currentGame():any{
+  return this.contentService.game
+}
 
   get userId(): string {
     return this.userService.user?._id || '';
   }
 
-
+  get ownerIdd():string{
+    return this.contentService.game?._ownerId || '';
+  }
 
 
   constructor(
@@ -51,8 +57,7 @@ export class GameDetailsComponent {
       this.likes = this.game.likes;
       let newGame = this.game;
       this.game = newGame;
-      console.log(this.game, '----game---');
-      console.log(this.likes, '---likes----');
+     
     })
   }
 
@@ -68,22 +73,23 @@ export class GameDetailsComponent {
   }
 
   likeGame(game: any, userId: string): void {
-    let arr = new Array(userId)
-    console.log(arr,'---arr--')
-    game.likes.concat(arr)
-    console.log(game.likes,'-111--userIdlike--')
+    let arr = new Array(userId);
    
-  this.contentService.editGameById(game._id,userId, game.likes.concat(arr),game).subscribe({
-    next: (game) => {
-      console.log(game,'---gameLiked--')
-      this.router.navigate(['/games'])
+  this.contentService.editGameById(game._id,this.ownerId, game.likes.concat(arr),game).subscribe({
+    next: (game) => {      
+      this.router.navigate(['/games']);
     },
     error: (err) => {
-      console.log(err)
+      console.log(err);
     }
   })
   
 
+  }
+
+
+  liked(game:any, userId:string){
+    return !game.likes.includes(userId)
   }
 
 }

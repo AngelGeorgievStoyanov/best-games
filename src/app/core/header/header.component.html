@@ -8,11 +8,11 @@
         </ul>
         <ul *ngIf="!isLogged" id="nav-ul" class="nav-ul">
             <li>
-                <a routerLink="/games">Games</a>
+                <a routerLink="/home">Home</a>
             </li>
 
             <li>
-                <a routerLink="/home">Home</a>
+                <a routerLink="/games">Games</a>
             </li>
             <li>
                 <a routerLink="/login">Login</a>
@@ -31,7 +31,10 @@
             <li>
                 <a routerLink="/games/new-game">Add new game</a>
             </li>
-            <li routerLink="/users/me">{{username}}'s profile</li>
+            <li>
+                <a routerLink="/games/my-games">My games</a>
+            </li>
+            <li routerLink="/user/profile">{{username}}'s profile</li>
             <li (click)="logout()">Logout</li>
 
         </ul>

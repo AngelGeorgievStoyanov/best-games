@@ -20,10 +20,7 @@ export class GamesComponent {
     this.games = undefined;
     this.contentService.getAllGames().subscribe(data => {
       this.games = data;
-       this.arr = Object.values(this.games)
-    
-     console.log(this.arr)
-     
+       this.arr = Object.values(this.games);     
 
     })
 

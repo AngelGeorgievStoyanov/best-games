@@ -1,0 +1,12 @@
+<p>profile works!</p>
+<section id="add-game">
+    <form #form="ngForm" class="add-game" (ngSubmit)="editProfile(form )">
+        <h2>Edit profile</h2>
+        <label for="name">Name:</label>
+        <input type="text" [(ngModel)]="userId.name" name="name" ngModel>
+        <label for="description">Email</label>
+        <textarea name="email" id=""   [(ngModel)]="userId.email" cols="40" rows="7" ngModel></textarea>
+        
+        <button>Edit</button>
+    </form>
+</section>

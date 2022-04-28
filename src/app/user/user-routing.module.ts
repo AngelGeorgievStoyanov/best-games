@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthActivate } from '../core/guards/auh.activate';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 
 
@@ -24,6 +25,10 @@ const routes: Routes = [
       authenticationRequired: false,
       authenticationFailureRedirectUrl: '/home',
     }
+},
+{
+  path:'profile',
+  component: ProfileComponent
 }
 ];
 

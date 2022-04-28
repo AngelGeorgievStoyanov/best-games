@@ -4,6 +4,7 @@ import { AuthActivate } from '../core/guards/auh.activate';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameEditComponent } from './game-edit/game-edit.component';
 import { GamesComponent } from './games/games.component';
+import { MyGamesComponent } from './my-games/my-games.component';
 import { NewGameComponent } from './new-game/new-game.component';
 
 const routes: Routes = [
@@ -36,6 +37,12 @@ const routes: Routes = [
     path: 'edit/:gameId',
     pathMatch: "full",
     component: GameEditComponent
+  }
+  ,
+  {
+    path:'my-games',
+    pathMatch:"full",
+    component: MyGamesComponent
   }
 
 
