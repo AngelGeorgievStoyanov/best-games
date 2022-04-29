@@ -35,6 +35,8 @@ export class ContentService {
 
     data._id = id
     data._ownerId = ownerId;
+    console.log(ownerId,'---owner game---')
+
     data.likes = likeees;
 
     console.log(data, '-----dataaa')
@@ -52,10 +54,11 @@ export class ContentService {
   }
 
 
-  getMyPosts(ownerId: string) {
+  getMyGames(ownerId: string) {
+    console.log(ownerId,'--ownerId---')
     let query = encodeURIComponent(`_ownerId="${ownerId}"`);
 
-    return this.http.get<IGame[]>(`${API_URL}/jsonstore/games?where=${query}`, { withCredentials: false });
+    return this.http.get<IGame[]>(`${API_URL}/jsonstore/games?where=${query}`);
 
   }
 }

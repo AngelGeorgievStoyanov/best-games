@@ -19,17 +19,17 @@ export class GameDetailsComponent {
   game: IGame | undefined;
   idGame: any;
   likes: any;
-  
 
-get currentGame():any{
-  return this.contentService.game
-}
+
+  get currentGame(): any {
+    return this.contentService.game
+  }
 
   get userId(): string {
     return this.userService.user?._id || '';
   }
 
-  get ownerIdd():string{
+  get ownerIdd(): string {
     return this.contentService.game?._ownerId || '';
   }
 
@@ -57,7 +57,7 @@ get currentGame():any{
       this.likes = this.game.likes;
       let newGame = this.game;
       this.game = newGame;
-     
+
     })
   }
 
@@ -72,23 +72,23 @@ get currentGame():any{
     })
   }
 
-  likeGame(game: any, userId: string): void {
+  likeGame(game: any, userId: string,): void {
     let arr = new Array(userId);
-   
-  this.contentService.editGameById(game._id,this.ownerId, game.likes.concat(arr),game).subscribe({
-    next: (game) => {      
-      this.router.navigate(['/games']);
-    },
-    error: (err) => {
-      console.log(err);
-    }
-  })
-  
+
+    this.contentService.editGameById(game._id, this.ownerId, game.likes.concat(arr), game).subscribe({
+      next: () => {
+        this.router.navigate(['/games']);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+
 
   }
 
 
-  liked(game:any, userId:string){
+  liked(game: any, userId: string) {
     return !game.likes.includes(userId)
   }
 

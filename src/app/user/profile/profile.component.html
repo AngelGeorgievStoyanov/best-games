@@ -1,12 +1,31 @@
 <p>profile works!</p>
-<section id="add-game">
-    <form #form="ngForm" class="add-game" (ngSubmit)="editProfile(form )">
-        <h2>Edit profile</h2>
-        <label for="name">Name:</label>
-        <input type="text" [(ngModel)]="userId.name" name="name" ngModel>
-        <label for="description">Email</label>
-        <textarea name="email" id=""   [(ngModel)]="userId.email" cols="40" rows="7" ngModel></textarea>
-        
-        <button>Edit</button>
-    </form>
-</section>
+<div *ngIf="isLoading">Loading...</div>
+<div *ngIf="!isLoading" class="container">
+    <section id="add-game">
+        <ng-container *ngIf="inUpdateMode">
+            <form #form="ngForm" class="add-game" (ngSubmit)="updateProfile(form )">
+                <h2>Edit profile</h2>
+                <label for="name">Name:</label>
+                <input type="text" [ngModel]="user!.username" name="username">
+                <label for="description">Email</label>
+                <textarea name="email" [ngModel]="user!.email" cols="40" rows="7" ngModel></textarea>
+                <button type="button" (click)="inUpdateMode = false">Cancel</button>
+                <button>Save</button>
+
+            </form>
+        </ng-container>
+        <ng-container>
+            <div class="flex">
+                <p>Username: </p>
+                <p>{{user!.username}}</p>
+            </div>
+            <div class="flex">
+                <p>Email: </p>
+                <p>{{user!.email}}</p>
+            </div>
+
+            <button (click)="inUpdateMode = true" class="edit-button">Edit</button>
+        </ng-container>
+    </section>
+</div>
+<h1>{{user}}</h1>

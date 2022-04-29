@@ -1,10 +1,35 @@
-<div id="login-form" class="login-form">
-    <form #form="ngForm" id="form" method="post" (ngSubmit)="login(form)">
-        <input #emailInput="ngModel" ngModel type="email" name="email" placeholder="Email" class="login-input" required
-            email />
-        <input #passwordInput="ngModel" ngModel type="password" name="password" placeholder="Password"
-            class="login-input" required />
-        <button class="btnSubmit login-input">Sign Up</button>
-        <small> <a class="login-input" routerLink="/register">Don't Have An Account? Sign up!</a></small>
-    </form>
+<div id="login-page">
+    <div id="login-form" class="login-form">
+        <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+        <form #form="ngForm" id="form" method="post" (ngSubmit)="login(form)">
+            <input #emailInput="ngModel" ngModel [appCustomValidator]="emailValidator"
+             type="email" name="email" placeholder="Email" class="login-input"
+                required email />
+
+                <ng-container *ngIf="emailInput.touched">
+                    <p *ngIf="emailInput.errors?.required" class="error">
+                      Email is required!
+                    </p>
+                    <p *ngIf="emailInput.errors?.invalidEmail" class="error">
+                      Email is not valid!
+                    </p>
+                  </ng-container>
+            <input #passwordInput="ngModel" ngModel type="password" name="password" placeholder="Password"
+                class="login-input" [minlength]="3" required />
+
+                <ng-container *ngIf="passwordInput.touched">
+                    <p *ngIf="passwordInput.errors?.required" class="error">
+                      Password is required!
+                    </p>
+                    <p *ngIf="passwordInput.errors?.minlength" class="error">
+                      Password must be at least 3 characters!
+                    </p>
+                  </ng-container>
+            <button class="btnSubmit login-input">Sign Up</button>
+        <h4>
+
+                <a class="login-input" id="a" routerLink="/register">Don't Have An Account? Sign up!</a></h4>
+        
+        </form>
+    </div>
 </div>

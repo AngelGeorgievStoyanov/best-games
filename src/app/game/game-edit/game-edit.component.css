@@ -1,18 +1,36 @@
-#add-game {
-    display: flex;
-  flex-direction: column;
-    margin: 150px auto;
-    border: 2px black solid;
-    border-radius: 5px;
-    padding: 10px;
-    width: 35%;
-    height: 300px;
-    align-items: center;
+#edit-game-div {
+  background-image: url('https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.add-game{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+#edit-game {
+  background-image: url('https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  border: 2px black solid;
+  border-radius: 5px;
+  padding: 10px;
+  width: 35%;
+  height: 300px;
+  align-items: center;
+
+
+
+}
+
+.add-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }

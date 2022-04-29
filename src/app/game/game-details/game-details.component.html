@@ -1,4 +1,4 @@
-<section>
+<section id="details-game">
     <li class="game-card">
         <h2>{{game?.name}}</h2>
         <p>{{game?.description}}</p>
@@ -10,7 +10,7 @@
                 <button class="button-like" (click)="likeGame(game,userId)">Like</button>
             </p>
         </div>
-        <p>Likes:
+        <p id="p">Likes:
             <span>{{game?.likes?.length}}</span>
         </p>
 
@@ -23,4 +23,7 @@
         </p>
 
     </li>
+    <h1>
+        {{ownerIdd}}
+    </h1>
 </section>

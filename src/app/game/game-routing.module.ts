@@ -42,7 +42,8 @@ const routes: Routes = [
   {
     path:'my-games',
     pathMatch:"full",
-    component: MyGamesComponent
+    component: MyGamesComponent,
+    
   }
 
 

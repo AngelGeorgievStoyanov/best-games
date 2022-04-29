@@ -1,10 +1,11 @@
 #main{
-    
+    background-image: url('https://images.pexels.com/photos/1462725/pexels-photo-1462725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     display: flex;
-    flex-wrap: wrap;
-    margin: 10px 10px;
-    padding: 10px 10px;
+    flex-wrap: wrap;    
     height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
@@ -32,4 +33,10 @@
     margin: 5px 5px;
     padding: 5px 5px;    
     text-align: center;
+}
+
+#no-games{
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
 }

@@ -1,11 +1,11 @@
 #main{
-    
+    background-image: url('https://images.pexels.com/photos/1670977/pexels-photo-1670977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     display: flex;
-    flex-wrap: wrap;
-    margin: 10px 10px;
-    padding: 10px 10px;
+    flex-wrap: wrap;   
     height: 100vh;
-
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .game-card{

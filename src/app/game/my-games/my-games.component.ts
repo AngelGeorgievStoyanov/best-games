@@ -8,24 +8,32 @@ import { IGame } from 'src/app/shared/interfaces';
   templateUrl: './my-games.component.html',
   styleUrls: ['./my-games.component.css']
 })
-export class MyGamesComponent  {
+export class MyGamesComponent {
 
   games: IGame[] | undefined;
-  arr : any;
-  
+  arr: any;
+  arrGames :any;
+
   get userId(): string {
     return this.userService.user?._id || '';
   }
-  constructor(private contentService: ContentService, private userService:UserService) {
+  constructor(private contentService: ContentService, private userService: UserService) {
     this.fetchGames();
   }
 
   fetchGames(): void {
     this.games = undefined;
-    this.contentService.getMyPosts(this.userId).subscribe(data => {
+    this.contentService.getMyGames(this.userId).subscribe(data => {
       this.games = data;
-       this.arr = Object.values(this.games);     
-
+      this.arr = Object.values(this.games);     
+      let myGames =new Array
+      this.arr.map((g: any) => {
+        if (g._ownerId == this.userId) {
+          myGames.push(g)
+        }
+      })
+     
+      this.arrGames= myGames;
     })
 
   }

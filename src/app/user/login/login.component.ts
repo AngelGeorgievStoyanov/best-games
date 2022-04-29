@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { emailValidator } from 'src/app/shared/validators';
 import { UserService } from '../../core/services/user.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { UserService } from '../../core/services/user.service';
 })
 export class LoginComponent {
 
-
+  emailValidator = emailValidator;
+  errorMessage: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,6 +21,7 @@ export class LoginComponent {
   ) { }
 
   login(form: NgForm): void {
+    this.errorMessage = '';
     if (form.invalid) { return; }
     const { email, password } = form.value;
     this.userServise.login({ email, password }).subscribe({
@@ -27,6 +30,7 @@ export class LoginComponent {
         this.router.navigate([redirectUrl])
       },
       error: (err) => {
+        this.errorMessage = err.error.message;
         console.log(err)
       }
     })

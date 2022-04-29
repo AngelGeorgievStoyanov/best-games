@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
-import { IUser } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-profile',
@@ -10,16 +10,31 @@ import { IUser } from 'src/app/shared/interfaces';
 export class ProfileComponent 
  {
 
-  user: IUser | undefined;
+  inUpdateMode = false;
 
-  get userId(): any {
-    return this.userService.user?._id
+  isLoading = true;
+
+  get user(){
+    return this.userService.user
   }
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+    this.userService.getProfileInfo().subscribe(() => {
+      this.isLoading = false;
+    });
+   }
+ 
 
-  editProfile(form:any){
-    console.log(form,'----form--')
+   updateProfile(form: NgForm): void {
+    if (form.invalid) { return; }
+    this.userService.updateProfile(form.value).subscribe({
+      next: () => {
+        this.inUpdateMode = false;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
-
+ 
 }

@@ -31,14 +31,22 @@ export class UserService {
   }
 
   getProfileInfo() {
-    return this.http.get<IUser>(`${apiURL}/users/me`, { withCredentials: false }).pipe(
-      tap((user) => this.user = user)
+    return this.http.get<IUser>(`${apiURL}/users/profile`).pipe(
+      tap((user) => {
+        this.user = user;
+      })
     )
   }
 
   logout() {
     return this.http.post<IUser>(`${apiURL}/users/logout`, {}, { withCredentials: false }).pipe(
       tap(() => this.user = null)
+    );
+  }
+
+  updateProfile(data: { username: string; email: string; tel: string; }) {
+    return this.http.put<IUser>(`${apiURL}/users/profile`, data).pipe(
+      tap((user) => this.user = user)
     );
   }
 }

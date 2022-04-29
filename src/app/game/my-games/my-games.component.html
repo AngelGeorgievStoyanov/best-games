@@ -1,15 +1,19 @@
-
 <main id="main">
-    <section *ngFor="let game of arr">
-        <li class="game-card">
-            <h2>{{game.name}}</h2>
-            <p>{{game.description}}</p>
-            <p>
-                <img class="game-card-image" src={{game.imageUrl}} alt="">
-            </p>
-            <p>
-                <button class="button-details" [routerLink]="['/games/details/', game._id]">Details</button>
-            </p>
-        </li>
-    </section>
+    <div id="no-games" *ngIf="arrGames==''">
+        <h2>Hello, you don't have any games added yet.</h2>
+    </div>
+    <div *ngIf="arrGames">
+        <section *ngFor="let game of arrGames">
+            <li class="game-card">
+                <h2>{{game.name}}</h2>
+                <p>{{game.description}}</p>
+                <p>
+                    <img class="game-card-image" src={{game.imageUrl}} alt="">
+                </p>
+                <p>
+                    <button class="button-details" [routerLink]="['/games/details/', game._id]">Details</button>
+                </p>
+            </li>
+        </section>
+    </div>
 </main>
