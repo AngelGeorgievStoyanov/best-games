@@ -20,9 +20,13 @@ export class LoginComponent {
     private router: Router
   ) { }
 
-  login(form: NgForm): void {
+  login(form: NgForm):void {
     this.errorMessage = '';
-    if (form.invalid) { return; }
+    if (form.invalid) {
+      this.errorMessage = 'Place write login form.'
+     return 
+    }
+    this.errorMessage = '';
     const { email, password } = form.value;
     this.userServise.login({ email, password }).subscribe({
       next: () => {
@@ -31,7 +35,7 @@ export class LoginComponent {
       },
       error: (err) => {
         this.errorMessage = err.error.message;
-        console.log(err)
+        console.log()
       }
     })
   }

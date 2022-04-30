@@ -16,6 +16,7 @@ export class RegisterComponent implements OnDestroy {
   killSubscription = new Subject();
 
   form: FormGroup;
+  errorMessage: string = '';
 
   constructor(
 
@@ -34,7 +35,11 @@ export class RegisterComponent implements OnDestroy {
   }
 
   register(): void {
-    if (this.form.invalid) { return; }
+    this.errorMessage = '';
+    if (this.form.invalid) {
+      this.errorMessage = 'Place write register form.'
+      return
+    }
     console.log(this.form)
     this.userService.register(this.form.value).subscribe({
       next: () => {

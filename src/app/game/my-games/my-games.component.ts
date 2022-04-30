@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContentService } from 'src/app/core/services/content.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { IGame } from 'src/app/shared/interfaces';

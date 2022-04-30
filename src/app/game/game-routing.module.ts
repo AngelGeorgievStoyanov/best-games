@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';;
 import { RouterModule, Routes } from '@angular/router';
 import { AuthActivate } from '../core/guards/auh.activate';
+import { NotFoundComponent } from '../not-found/not-found.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameEditComponent } from './game-edit/game-edit.component';
 import { GamesComponent } from './games/games.component';
@@ -25,26 +26,46 @@ const routes: Routes = [
   },
   {
     path: 'edit',
-    component: GameEditComponent
+    component: GameEditComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/login',
+    }
   },
   {
     path: 'details/:gameId',
     pathMatch: "full",
     component: GameDetailsComponent,
-
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/login',
+    }
   },
   {
     path: 'edit/:gameId',
     pathMatch: "full",
-    component: GameEditComponent
+    component: GameEditComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/login',
+    }
   }
   ,
   {
     path:'my-games',
     pathMatch:"full",
     component: MyGamesComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/login',
+    }
     
   }
+  
 
 
 ]

@@ -1,5 +1,6 @@
 <div id="register-div">
   <div id="form">
+    <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
     <h2>REGISTER PAGE</h2>
     <form [formGroup]="form" id="register-form" class="register" action="" method="post" (ngSubmit)="register()">
       <input type="text" name="username" placeholder="Username" class="register-input" formControlName="username" />
