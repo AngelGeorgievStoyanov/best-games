@@ -2,7 +2,7 @@
     <div id="no-games" *ngIf="arrGames==''">
         <h2>Hello, you don't have any games added yet.</h2>
     </div>
-    <div *ngIf="arrGames">
+    <div *ngIf="arrGames"  id="div-my-games">
         <section *ngFor="let game of arrGames">
             <li class="game-card">
                 <h2>{{game.name}}</h2>

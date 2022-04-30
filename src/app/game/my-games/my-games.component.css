@@ -40,3 +40,8 @@
     flex-direction: column;
     margin: 20px auto;
 }
+
+#div-my-games{
+    display: flex;
+    flex-wrap: wrap;  
+}

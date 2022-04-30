@@ -77,7 +77,10 @@ export class GameDetailsComponent {
 
     this.contentService.editGameById(game._id, this.ownerId, game.likes.concat(arr), game).subscribe({
       next: () => {
-        this.router.navigate(['/games']);
+        setTimeout(() => {
+
+          this.router.navigate(['/games']);
+        }, 3000)
       },
       error: (err) => {
         console.log(err);

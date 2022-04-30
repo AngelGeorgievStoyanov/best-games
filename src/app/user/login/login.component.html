@@ -1,6 +1,7 @@
 <div id="login-page">
     <div id="login-form" class="login-form">
         <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+        <h2>LOGIN PAGE</h2>
         <form #form="ngForm" id="form" method="post" (ngSubmit)="login(form)">
             <input #emailInput="ngModel" ngModel [appCustomValidator]="emailValidator"
              type="email" name="email" placeholder="Email" class="login-input"
