@@ -13,7 +13,7 @@
 #login-form {
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
     border: 2px black solid;
     border-radius: 5px;
     padding: 10px;
@@ -39,17 +39,18 @@
     width: 20%;
     cursor: pointer;
 }
-#a{
+
+#a {
     color: black;
 }
 
 p.error {
     text-align: left;
     border-radius: 0.3em;
-    color:RED;
+    color: RED;
     padding-top: 0;
-  }
-  
-  .input-error {
+}
+
+.input-error {
     border-left-color: RED;
-  }
+}

@@ -14,12 +14,12 @@ import { IGame } from 'src/app/shared/interfaces';
 export class NewGameComponent {
 
   form: FormGroup;
-  //likes: any=[];
 
 
   get userId(): string {
     return this.userService.user?._id || ''
   }
+  errorMessage: string = '';
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -39,8 +39,11 @@ export class NewGameComponent {
 
 
   addGame(): void {
-    if (this.form.invalid) { return }
+    if (this.form.invalid) {
+      this.errorMessage = 'Place add all ...';
+      return }
     console.log(this.form.value)
+    this.errorMessage = '';
     this.contentService.createGame(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/games'])

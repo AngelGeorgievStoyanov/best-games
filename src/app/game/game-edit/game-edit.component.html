@@ -1,13 +1,14 @@
 <div id="edit-game-div">
     <section id="edit-game">
+        <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
         <form #form="ngForm" class="add-game" (ngSubmit)="editGame( idGame,ownerId ,form)">
             <h2 >Edit game</h2>
             <label  for="name">Name of the game</label>
-            <input   type="text" [(ngModel)]="oneGame[0]" name="name" ngModel>
-            <label   for="description">Description</label>
-            <textarea   name="description" id="" [(ngModel)]="oneGame[1]" cols="40" rows="7" ngModel></textarea>
+            <input   type="text" [(ngModel)]="oneGame[0]" name="name" ngModel required="name">
+            <label   for="description" >Description</label>
+            <textarea   name="description" id="" [(ngModel)]="oneGame[1]" cols="40" rows="7" ngModel required="description" ></textarea>
             <label   for="imageUrl">imageUrl</label>
-            <input   type="text" [(ngModel)]="oneGame[2]" name="imageUrl" ngModel>
+            <input   type="text" [(ngModel)]="oneGame[2]" name="imageUrl" ngModel required="imageUrl">
             <button  >Edit</button>
         </form>
     </section>

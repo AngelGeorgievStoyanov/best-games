@@ -1,13 +1,14 @@
 <div id="div-add-game">
     <section id="add-game">
+        <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
         <form [formGroup]="form" class="add-game" method="post" (ngSubmit)="addGame()">
             <h2>Add new game</h2>
             <label for="name">Name of the game</label>
-            <input type="text" name="name" formControlName="name">
+            <input type="text" name="name" formControlName="name" required="name">
             <label for="description">Description</label>
-            <textarea name="description" id="" cols="40" rows="7" formControlName="description"></textarea>
+            <textarea name="description" id="" cols="40" rows="7" formControlName="description" required="description"></textarea>
             <label for="imageUrl">imageUrl</label>
-            <input type="text" name="imageUrl" formControlName="imageUrl">
+            <input type="text" name="imageUrl" formControlName="imageUrl" required="imageUrl">
             <button>ADD</button>
         </form>
     </section>

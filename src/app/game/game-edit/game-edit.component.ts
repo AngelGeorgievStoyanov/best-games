@@ -20,7 +20,7 @@ export class GameEditComponent {
   get likess(): any {
     return this.game?.likes
   }
-
+  errorMessage: string = '';
   constructor(private contentService: ContentService,
     private activatedRoute: ActivatedRoute, private router: Router,) {
     this.fetchGame();
@@ -28,6 +28,7 @@ export class GameEditComponent {
   }
 
   fetchGame(): void {
+
     this.game = undefined;
     const id = this.activatedRoute.snapshot.params.gameId;
     this.idGame = id;
@@ -41,6 +42,9 @@ export class GameEditComponent {
 
 
   editGame(idGame: any, ownerId: any, form: NgForm): void {
+    if (form.invalid) {
+      this.errorMessage = 'Place add all ...';
+      return }
     this.contentService.editGameById(idGame, ownerId, this.likess, form.value).subscribe({
       next: () => {
         this.router.navigate(['/games'])
